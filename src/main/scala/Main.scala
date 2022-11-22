@@ -42,7 +42,7 @@ object Main {
     //refactorJSON()
     val start= System.nanoTime()
     //writeParquet()
-    val count = countArticles(true,true)
+    val count = countArticles(false,false)
     val end = System.nanoTime()
     val timeDifference= (end - start)/ 1000000 //Umrechnung in ms
     println("Ausführungszeit: "+timeDifference+" ms")

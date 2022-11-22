@@ -1,0 +1,23 @@
+PC:
+A)
+14,484 s
+B)
+in Programm Zeitstempel
+SQL & JSON
+5,938 s => 4894081
+API & JSON
+5,057 s => 4894081
+SQL & Parquet
+4,022 s => 4894081
+API & Parquet
+3,830 s => 4894081
+Localhost:4040 Zeitangaben:
+SQL & JSON
+3,091 s => 4894081
+API & JSON
+2,088 s => 4894081
+SQL & Parquet
+1,094 => 4894081
+API & Parquet
+1,088 => 4894081
+C)

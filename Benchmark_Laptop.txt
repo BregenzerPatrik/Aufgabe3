@@ -1,0 +1,24 @@
+a)
+38,215 s
+b)
+Eigenes Zeitstoppen:
+SQL und JSON:
+10,122 s und 4894081 als Ergebniscount
+API und JSON:
+9,536 s und 4894081 als Ergebniscount
+SQL und Parquet:
+6,657 s und 4894081 als Ergebniscount
+API und Parquet:
+5,727 s und 4894081 als Ergebniscount
+
+Zeit Laut localhost:4040:
+
+SQL und JSON:
+5,2 s und 4894081 als Ergebniscount
+API und JSON:
+5,2 s und 4894081 als Ergebniscount
+SQL und Parquet:
+1,1 s und 4894081 als Ergebniscount
+API und Parquet:
+2,2 s und 4894081 als Ergebniscount
+c)

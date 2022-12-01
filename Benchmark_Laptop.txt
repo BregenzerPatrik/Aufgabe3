@@ -1,24 +1,49 @@
 a)
-38,215 s
+Eigenes Zeitstoppen:
+32,534 s
+Localhost:4040:
+28 s
 b)
 Eigenes Zeitstoppen:
 SQL und JSON:
-10,122 s und 4894081 als Ergebniscount
+10,579 s und 4894081 als Ergebniscount
 API und JSON:
-9,536 s und 4894081 als Ergebniscount
+10,469 s und 4894081 als Ergebniscount
 SQL und Parquet:
-6,657 s und 4894081 als Ergebniscount
+6,656 s und 4894081 als Ergebniscount
 API und Parquet:
-5,727 s und 4894081 als Ergebniscount
+5,720 s und 4894081 als Ergebniscount
 
 Zeit Laut localhost:4040:
 
 SQL und JSON:
-5,2 s und 4894081 als Ergebniscount
+6,2 s und 4894081 als Ergebniscount
 API und JSON:
-5,2 s und 4894081 als Ergebniscount
+6,2 s und 4894081 als Ergebniscount
 SQL und Parquet:
-1,1 s und 4894081 als Ergebniscount
+2,1 s und 4894081 als Ergebniscount
 API und Parquet:
-2,2 s und 4894081 als Ergebniscount
+1,1 s und 4894081 als Ergebniscount
 c)
+
+count Authors:
+Eigenes Zeitstoppen:
+SQL und JSON:
+23,635 s und 4398138 als Ergebniscount
+API und JSON:
+24,482 s und 4398138 als Ergebniscount
+SQL und Parquet:
+17,575 s und 4398138 als Ergebniscount
+API und Parquet:
+16,365 s und 4398138 als Ergebniscount
+
+Zeit Laut localhost:4040:
+
+SQL und JSON:
+18,1 s und 4398138 als Ergebniscount
+API und JSON:
+18,081 s und 4398138 als Ergebniscount
+SQL und Parquet:
+12,085 s und 4398138 als Ergebniscount
+API und Parquet:
+11,064 s und 4398138 als Ergebniscount

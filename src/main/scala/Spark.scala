@@ -9,41 +9,41 @@ object Spark {
   val newJSONPath = "../../dblp.v12.txt"
   val parquetPath = "../../Data.parquet"
   val gson = new Gson()
-  val session = SparkSession
+  val session: SparkSession = SparkSession
     .builder
     .appName("Aufgabe3")
     .master("local[*]")
     .getOrCreate()
-  val schemaAll = new StructType()
-    .add("id", LongType, false)
+  val schemaAll: StructType = new StructType()
+    .add("id", LongType, nullable = false)
     .add("authors", ArrayType(
       new StructType()
-        .add("id", LongType, false)
-        .add("name", StringType, true)
-        .add("org", StringType, true)))
-    .add("title", StringType, true)
-    .add("year", IntegerType, true)
-    .add("n_citation", IntegerType, true)
-    .add("page_strart", StringType, true)
-    .add("page_end", StringType, true)
-    .add("doc_type", StringType, true)
-    .add("publisher", StringType, true)
-    .add("volume", StringType, true)
-    .add("issue", StringType, true)
-    .add("doi", StringType, true)
-    .add("references", ArrayType(LongType), true)
-  val schemaOnlyID = new StructType()
-    .add("id", LongType, false)
-  val schemaDestinctAuthors = new StructType()
+        .add("id", LongType, nullable = false)
+        .add("name", StringType, nullable = true)
+        .add("org", StringType, nullable = true)))
+    .add("title", StringType, nullable = true)
+    .add("year", IntegerType, nullable = true)
+    .add("n_citation", IntegerType, nullable = true)
+    .add("page_start", StringType, nullable = true)
+    .add("page_end", StringType, nullable = true)
+    .add("doc_type", StringType, nullable = true)
+    .add("publisher", StringType, nullable = true)
+    .add("volume", StringType, nullable = true)
+    .add("issue", StringType, nullable = true)
+    .add("doi", StringType, nullable = true)
+    .add("references", ArrayType(LongType), nullable = true)
+  val schemaOnlyID: StructType = new StructType()
+    .add("id", LongType, nullable = false)
+  val schemaDistinctAuthors: StructType = new StructType()
     .add("authors", ArrayType(
       new StructType()
-        .add("id", LongType, false)))
-  val schemaAuthorsAll = new StructType()
+        .add("id", LongType, nullable = false)))
+  val schemaAuthorsAll: StructType = new StructType()
     .add("authors", ArrayType(
       new StructType()
-        .add("id", LongType, false)
-        .add("name", StringType, true)
-        .add("org", StringType, true)))
+        .add("id", LongType, nullable = false)
+        .add("name", StringType, nullable = true)
+        .add("org", StringType, nullable = true)))
 
   def mostArticles(isSQL: Boolean, isJSON: Boolean): List[Author] = {
     val dataFrame = getDataFrame(schemaAuthorsAll, isJSON)
@@ -80,7 +80,7 @@ object Spark {
   }
 
   def distinctAuthors(isSQL: Boolean, isJSON: Boolean): Long = {
-    val dataframe = getDataFrame(schemaDestinctAuthors, isJSON)
+    val dataframe = getDataFrame(schemaDistinctAuthors, isJSON)
     if (isSQL) {
       val authorsDataFrame = dataframe.select(explode(col("authors")))
       authorsDataFrame.createTempView("AuthorIDs")
@@ -114,7 +114,7 @@ object Spark {
   }
 
   def writeParquet(): Unit = {
-    val articleDF = getDataFrame(schemaAll, true)
+    val articleDF = getDataFrame(schemaAll, isJSON = true)
     articleDF.write.parquet(parquetPath)
   }
 }

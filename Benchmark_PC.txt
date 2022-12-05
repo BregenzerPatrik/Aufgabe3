@@ -1,23 +1,32 @@
 PC:
 A)
-14,484 s
+16.310 s
 B)
-in Programm Zeitstempel
 SQL & JSON
-5,938 s => 4894081
+6.076 s
 API & JSON
-5,057 s => 4894081
+5.934 s
 SQL & Parquet
-4,022 s => 4894081
+4.863 s
 API & Parquet
-3,830 s => 4894081
-Localhost:4040 Zeitangaben:
-SQL & JSON
-3,091 s => 4894081
-API & JSON
-2,088 s => 4894081
-SQL & Parquet
-1,094 => 4894081
-API & Parquet
-1,088 => 4894081
+4.843 s
 C)
+Autoren count:
+SQL & JSON
+13.954 s
+API & JSON
+13.816 s
+SQL & Parquet
+13.978 s
+API & Parquet
+13.832 s
+
+Most Article:
+SQL & JSON
+27.637 s
+API & JSON
+30.101 s
+SQL & Parquet
+25.111 s
+API & Parquet
+24.477 s

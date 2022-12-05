@@ -34,14 +34,19 @@ object Spark {
     .add("references", ArrayType(LongType), true)
   val schemaOnlyID = new StructType()
     .add("id", LongType, false)
-  val schemaDestinctAuthorsOnlyID = new StructType()
-    .add("id", LongType, false)
+  val schemaDestinctAuthors = new StructType()
     .add("authors", ArrayType(
       new StructType()
         .add("id", LongType, false)))
+  val schemaAuthorsAll = new StructType()
+    .add("authors", ArrayType(
+      new StructType()
+        .add("id", LongType, false)
+        .add("name", StringType, true)
+        .add("org", StringType, true)))
 
   def mostArticles(isSQL: Boolean, isJSON: Boolean): List[Author] = {
-    val dataFrame = getDataFrame(schemaAll, isJSON)
+    val dataFrame = getDataFrame(schemaAuthorsAll, isJSON)
     val authorsDataFrame = dataFrame.select(explode(col("authors"))).select("col.*")
     if (isSQL) {
       authorsDataFrame.createTempView("Authors")
@@ -75,7 +80,7 @@ object Spark {
   }
 
   def distinctAuthors(isSQL: Boolean, isJSON: Boolean): Long = {
-    val dataframe = getDataFrame(schemaDestinctAuthorsOnlyID, isJSON)
+    val dataframe = getDataFrame(schemaDestinctAuthors, isJSON)
     if (isSQL) {
       val authorsDataFrame = dataframe.select(explode(col("authors")))
       authorsDataFrame.createTempView("AuthorIDs")
